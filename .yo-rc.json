@@ -1,0 +1,45 @@
+{
+  "generator-jhipster": {
+    "applicationType": "gateway",
+    "gitCompany": "",
+    "baseName": "JhipsterTestApplication",
+    "packageName": "com.agrawal.tushar",
+    "packageFolder": "com/agrawal/tushar",
+    "serverPort": 6391,
+    "serviceDiscoveryType": false,
+    "authenticationType": "jwt",
+    "uaaBaseName": "../uaa",
+    "cacheProvider": "no",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "cassandra",
+    "devDatabaseType": "cassandra",
+    "prodDatabaseType": "cassandra",
+    "searchEngine": false,
+    "enableSwaggerCodegen": false,
+    "messageBroker": "kafka",
+    "buildTool": "maven",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [
+      "cucumber"
+    ],
+    "enableTranslation": false,
+    "nativeLanguage": "en",
+    "languages": [
+      "en"
+    ],
+    "clientFramework": "angularX",
+    "jhiPrefix": "jhi",
+    "jhipsterVersion": "6.2.0",
+    "jwtSecretKey": "Y2UxMjk5YmUzZWFmZjIwZTE4NTljOTg2NDk2ZTc2NTNjYzEyMDlmNTdmZWFjMjBlYmY5ZGEyNThiYjE2ZDZlMDk3YTFiYjBlOTM4Yjk5ZjJhMmEyMDM4NDY2M2RiODg4ZWRjMjNjNGQ3ZjQ4ZGY0YmZiMGIxNjExODU4NTk2ZTY=",
+    "clientTheme": "none",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "blueprints": []
+  },
+  "git-provider": "GitHub",
+  "git-company": "tusharagrawa",
+  "repository-name": "JhipsterTestApplicationRepo"
+}

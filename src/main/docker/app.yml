@@ -1,0 +1,39 @@
+version: '2'
+services:
+  jhipstertestapplication-app:
+    image: jhipstertestapplication
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=prod,swagger
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - SPRING_DATA_CASSANDRA_CONTACTPOINTS=jhipstertestapplication-cassandra
+      - JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
+      - SPRING_KAFKA_CONSUMER_BOOTSTRAP_SERVERS=kafka:9092
+      - SPRING_KAFKA_PRODUCER_BOOTSTRAP_SERVERS=kafka:9092
+    ports:
+      - 6391:6391
+  jhipstertestapplication-cassandra:
+    extends:
+      file: cassandra-cluster.yml
+      service: jhipstertestapplication-cassandra
+  jhipstertestapplication-cassandra-node:
+    image: cassandra:3.11.4
+    environment:
+      - CASSANDRA_SEEDS=jhipstertestapplication-cassandra
+  jhipstertestapplication-cassandra-migration:
+    extends:
+      file: cassandra-migration.yml
+      service: jhipstertestapplication-cassandra-migration
+    environment:
+      - CREATE_KEYSPACE_SCRIPT=create-keyspace-prod.cql
+  kafka:
+    extends:
+      file: kafka.yml
+      service: kafka
+    environment:
+      - KAFKA_ADVERTISED_HOST_NAME=kafka
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092
+  zookeeper:
+    extends:
+      file: kafka.yml
+      service: zookeeper
